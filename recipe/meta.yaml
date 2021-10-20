@@ -7,7 +7,8 @@ package:
 
 source:
   url: https://chromium.googlesource.com/webm/libvpx/+archive/v{{ version }}.tar.gz
-  sha256: e644f60aeb502158893e8485f54b4f7e43b7d87168cd895222b027c0a2f302c2
+  # No checksum
+
 build:
   number: 1
   skip: True  # [win]
