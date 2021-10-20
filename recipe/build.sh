@@ -7,9 +7,9 @@ if [[ ${target_platform} == linux-* ]]; then
 fi
 
 if [[ ${target_platform} == osx-arm64 ]]; then
-  TARGET="--target=arm64-darwin-gcc --enable-external-build"
+  TARGET="--target=arm64-darwin-gcc"
   export CROSS=arm64-apple-darwin20.0.0-
-  # sed -i.bak "s,embed-bitcode"
+  sed -i.bak "/check_add_ldflags -fembed-bitcode/d" build/make/configure.sh
 fi
 
 ./configure --prefix=${PREFIX} ${TARGET} \
