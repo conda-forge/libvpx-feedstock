@@ -9,6 +9,7 @@ fi
 if [[ ${target_platform} == osx-arm64 ]]; then
   TARGET="--target=arm64-darwin-gcc"
   export CROSS=arm64-apple-darwin20.0.0-
+  # -fembed-bitcode conflicts with a conda-forge LD option (-dead_strip_dylibs)
   sed -i.bak "/check_add_ldflags -fembed-bitcode/d" build/make/configure.sh
 else
   CPU_DETECT="--enable-runtime-cpu-detect"
