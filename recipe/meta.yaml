@@ -9,7 +9,7 @@ source:
   url: https://github.com/webmproject/{{ name }}/archive/v{{ version }}.tar.gz
   sha256: 965e51c91ad9851e2337aebcc0f517440c637c506f3a03948062e3d5ea129a83
 build:
-  number: 0
+  number: 1
   skip: True  # [win]
   run_exports:
     # new so names and compatibility changes on minor version
