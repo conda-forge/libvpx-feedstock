@@ -6,8 +6,8 @@ package:
   version: {{ version }}
 
 source:
-  url: https://chromium.googlesource.com/webm/libvpx/+archive/v{{ version }}.tar.gz
-  # No checksum
+  git_url: https://chromium.googlesource.com/webm/libvpx
+  git_rev: v1.11.0
 
 build:
   number: 1
