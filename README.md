@@ -26,6 +26,16 @@ Current build status
 
 
 <table><tr>
+<<<<<<< HEAD
+=======
+    <td>Travis</td>
+    <td>
+      <a href="https://travis-ci.com/conda-forge/libvpx-feedstock">
+        <img alt="macOS" src="https://img.shields.io/travis/com/conda-forge/libvpx-feedstock/master.svg?label=macOS">
+      </a>
+    </td>
+  </tr><tr>
+>>>>>>> master
     <td>Drone</td>
     <td>
       <a href="https://cloud.drone.io/conda-forge/libvpx-feedstock">
