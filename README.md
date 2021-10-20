@@ -26,8 +26,6 @@ Current build status
 
 
 <table><tr>
-<<<<<<< HEAD
-=======
     <td>Travis</td>
     <td>
       <a href="https://travis-ci.com/conda-forge/libvpx-feedstock">
@@ -35,7 +33,6 @@ Current build status
       </a>
     </td>
   </tr><tr>
->>>>>>> master
     <td>Drone</td>
     <td>
       <a href="https://cloud.drone.io/conda-forge/libvpx-feedstock">
@@ -43,7 +40,7 @@ Current build status
       </a>
     </td>
   </tr>
-    
+
   <tr>
     <td>Azure</td>
     <td>
