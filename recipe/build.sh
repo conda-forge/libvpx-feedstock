@@ -6,7 +6,11 @@ if [[ ${target_platform} == linux-* ]]; then
   LDFLAGS="$LDFLAGS -pthread"
 fi
 
-./configure --prefix=${PREFIX}           \
+if [[ ${target_platform} == osx-arm64 ]]; then
+  TARGET="--target=arm64-darwin-gcc"
+fi
+
+./configure --prefix=${PREFIX} ${TARGET} \
             --as=yasm                    \
             --enable-shared              \
             --disable-static             \
