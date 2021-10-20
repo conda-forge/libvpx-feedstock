@@ -22,7 +22,7 @@ fi
             --enable-vp9-highbitdepth    \
             --enable-pic                 \
             --enable-runtime-cpu-detect  \
-            --enable-experimental || { cat config.log; exit 1 }
+            --enable-experimental || { cat config.log; exit 1; }
 
-make -j${CPU_COUNT}
+make -j${CPU_COUNT} V=1
 make install
