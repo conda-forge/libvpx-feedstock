@@ -8,6 +8,7 @@ fi
 
 if [[ ${target_platform} == osx-arm64 ]]; then
   TARGET="--target=arm64-darwin-gcc"
+  export CROSS=arm64-apple-darwin20.0.0-
 fi
 
 ./configure --prefix=${PREFIX} ${TARGET} \
