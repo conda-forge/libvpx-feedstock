@@ -10,7 +10,10 @@ if [[ ${target_platform} == osx-arm64 ]]; then
   TARGET="--target=arm64-darwin-gcc"
   export CROSS=arm64-apple-darwin20.0.0-
   sed -i.bak "/check_add_ldflags -fembed-bitcode/d" build/make/configure.sh
+else
+  CPU_DETECT="--enable-runtime-cpu-detect"
 fi
+
 
 ./configure --prefix=${PREFIX} ${TARGET} \
             --as=yasm                    \
@@ -23,8 +26,8 @@ fi
             --enable-vp9                 \
             --enable-vp9-highbitdepth    \
             --enable-pic                 \
-            --enable-runtime-cpu-detect  \
+            ${CPU_DETECT}                \
             --enable-experimental || { cat config.log; exit 1; }
 
-make -j${CPU_COUNT} V=1
+make -j${CPU_COUNT}
 make install
