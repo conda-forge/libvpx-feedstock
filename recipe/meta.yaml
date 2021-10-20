@@ -6,8 +6,8 @@ package:
   version: {{ version }}
 
 source:
-  git_url: https://chromium.googlesource.com/webm/libvpx
-  git_rev: v1.11.0
+  url: https://download.videolan.org/contrib/vpx/libvpx-{{ version }}.tar.gz
+  sha256: 965e51c91ad9851e2337aebcc0f517440c637c506f3a03948062e3d5ea129a83
 
 build:
   number: 1
