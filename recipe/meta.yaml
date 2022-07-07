@@ -22,9 +22,17 @@ requirements:
   build:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
-    - make
+    - make                  # [unix]
+    - m2-make               # [win]
     - yasm
-    - autotools_clang_conda  # [win]
+    # - autotools_clang_conda  # [win]
+    - m2-coreutils           # [win]
+    - m2-bash                # [win]
+    - m2-patch               # [win]
+    - m2-sed                 # [win]
+    - m2-gawk                # [win]
+    - m2-perl                # [win]
+    - perl                   # [unix]
 
 test:
   commands:
