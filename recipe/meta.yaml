@@ -10,8 +10,8 @@ source:
   sha256: 965e51c91ad9851e2337aebcc0f517440c637c506f3a03948062e3d5ea129a83
 
 build:
-  number: 3 
-  skip: True  # [win]
+  number: 4
+  skip: True  # [not win]
   run_exports:
     # new so names and compatibility changes on minor version
     # https://abi-laboratory.pro/tracker/timeline/libvpx/
@@ -24,12 +24,13 @@ requirements:
     - {{ compiler('cxx') }}
     - make
     - yasm
+    - autotools_clang_conda  # [win]
 
 test:
   commands:
     - test -f ${PREFIX}/lib/libvpx${SHLIB_EXT}
-    - ${PREFIX}/bin/vpxenc --help  # [build_platform == target_platform]
-    - ${PREFIX}/bin/vpxdec --help  # [build_platform == target_platform]
+    - vpxenc --help  # [build_platform == target_platform]
+    - vpxdec --help  # [build_platform == target_platform]
 
 about:
   home: https://www.webmproject.org/
