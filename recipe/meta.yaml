@@ -8,6 +8,8 @@ package:
 source:
   url: https://download.videolan.org/contrib/vpx/libvpx-{{ version }}.tar.gz
   sha256: 965e51c91ad9851e2337aebcc0f517440c637c506f3a03948062e3d5ea129a83
+  patches:
+    - simpler_configure.patch
 
 build:
   number: 4

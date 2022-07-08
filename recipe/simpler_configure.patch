@@ -1,0 +1,14 @@
+diff --git a/configure b/configure
+index beea65032..9d76ef0e3 100755
+--- a/configure
++++ b/configure
+@@ -13,8 +13,7 @@
+ ##
+ 
+ #source_path="`dirname \"$0\"`"
+-source_path=${0%/*}
+-. "${source_path}/build/make/configure.sh"
++. "build/make/configure.sh"
+ 
+ show_help(){
+     show_help_pre
