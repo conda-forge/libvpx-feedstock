@@ -35,6 +35,7 @@ requirements:
     - m2-gawk                # [win]
     - m2-perl                # [win]
     - m2-diffutils           # [win]
+    - m2-grep                # [win]
     - perl                   # [unix]
 
 test:
