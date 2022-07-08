@@ -1,7 +1,55 @@
 diff --git a/build/make/configure.sh b/build/make/configure.sh
-index 581042e38..e1ab4f575 100644
+index 581042e38..7446b604c 100644
 --- a/build/make/configure.sh
 +++ b/build/make/configure.sh
+@@ -299,33 +299,33 @@ check_cc() {
+   log check_cc "$@"
+   cat >${TMP_C}
+   log_file ${TMP_C}
+-  check_cmd ${CC} ${CFLAGS} "$@" -c -o ${TMP_O} ${TMP_C}
++  check_cmd ${CC} ${CFLAGS} "$@" -c /Fo ${TMP_O} ${TMP_C}
+ }
+ 
+ check_cxx() {
+   log check_cxx "$@"
+   cat >${TMP_CC}
+   log_file ${TMP_CC}
+-  check_cmd ${CXX} ${CXXFLAGS} "$@" -c -o ${TMP_O} ${TMP_CC}
++  check_cmd ${CXX} ${CXXFLAGS} "$@" -c /Fo ${TMP_O} ${TMP_CC}
+ }
+ 
+ check_cpp() {
+   log check_cpp "$@"
+   cat > ${TMP_C}
+   log_file ${TMP_C}
+-  check_cmd ${CC} ${CFLAGS} "$@" -E -o ${TMP_O} ${TMP_C}
++  check_cmd ${CC} ${CFLAGS} "$@" -E /Fo ${TMP_O} ${TMP_C}
+ }
+ 
+ check_ld() {
+   log check_ld "$@"
+   check_cc $@ \
+-    && check_cmd ${LD} ${LDFLAGS} "$@" -o ${TMP_X} ${TMP_O} ${extralibs}
++    && check_cmd ${LD} ${LDFLAGS} "$@" /Fo ${TMP_X} ${TMP_O} ${extralibs}
+ }
+ 
+ check_lib() {
+   log check_lib "$@"
+   check_cc $@ \
+-    && check_cmd ${LD} ${LDFLAGS} -o ${TMP_X} ${TMP_O} "$@" ${extralibs}
++    && check_cmd ${LD} ${LDFLAGS} /Fo ${TMP_X} ${TMP_O} "$@" ${extralibs}
+ }
+ 
+ check_header(){
+@@ -391,7 +391,7 @@ section .rodata
+ align 16
+ EOF
+   log_file ${TMP_ASM}
+-  check_cmd ${AS} ${ASFLAGS} -o ${TMP_O} ${TMP_ASM}
++  check_cmd ${AS} ${ASFLAGS} /Fo ${TMP_O} ${TMP_ASM}
+   readelf -WS ${TMP_O} >${TMP_X}
+   log_file ${TMP_X}
+   if ! grep -q '\.rodata .* 16$' ${TMP_X}; then
 @@ -690,9 +690,6 @@ post_process_common_cmdline() {
    prefix="${prefix%/}"
    libdir="${libdir:-${prefix}/lib}"
