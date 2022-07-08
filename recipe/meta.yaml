@@ -8,10 +8,12 @@ package:
 source:
   url: https://download.videolan.org/contrib/vpx/libvpx-{{ version }}.tar.gz
   sha256: 965e51c91ad9851e2337aebcc0f517440c637c506f3a03948062e3d5ea129a83
+  patches:
+    - simpler_configure.patch  # [win]
 
 build:
-  number: 3 
-  skip: True  # [win]
+  number: 4
+  skip: True  # [not win]
   run_exports:
     # new so names and compatibility changes on minor version
     # https://abi-laboratory.pro/tracker/timeline/libvpx/
@@ -22,14 +24,25 @@ requirements:
   build:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
-    - make
+    - make                  # [unix]
+    - m2-make               # [win]
     - yasm
+    # - autotools_clang_conda  # [win]
+    - m2-coreutils           # [win]
+    - m2-bash                # [win]
+    - m2-patch               # [win]
+    - m2-sed                 # [win]
+    - m2-gawk                # [win]
+    - m2-perl                # [win]
+    - m2-diffutils           # [win]
+    - m2-grep                # [win]
+    - perl                   # [unix]
 
 test:
   commands:
     - test -f ${PREFIX}/lib/libvpx${SHLIB_EXT}
-    - ${PREFIX}/bin/vpxenc --help  # [build_platform == target_platform]
-    - ${PREFIX}/bin/vpxdec --help  # [build_platform == target_platform]
+    - vpxenc --help  # [build_platform == target_platform]
+    - vpxdec --help  # [build_platform == target_platform]
 
 about:
   home: https://www.webmproject.org/
