@@ -1,3 +1,17 @@
+diff --git a/build/make/configure.sh b/build/make/configure.sh
+index 581042e38..e1ab4f575 100644
+--- a/build/make/configure.sh
++++ b/build/make/configure.sh
+@@ -690,9 +690,6 @@ post_process_common_cmdline() {
+   prefix="${prefix%/}"
+   libdir="${libdir:-${prefix}/lib}"
+   libdir="${libdir%/}"
+-  if [ "${libdir#${prefix}}" = "${libdir}" ]; then
+-    die "Libdir ${libdir} must be a subdirectory of ${prefix}"
+-  fi
+ }
+ 
+ post_process_cmdline() {
 diff --git a/configure b/configure
 index beea65032..9d76ef0e3 100755
 --- a/configure
