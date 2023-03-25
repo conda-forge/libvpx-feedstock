@@ -1,11 +1,11 @@
-About libvpx
-============
+About libvpx-feedstock
+======================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/libvpx-feedstock/blob/main/LICENSE.txt)
 
 Home: https://www.webmproject.org/
 
 Package license: BSD-3-Clause
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/libvpx-feedstock/blob/main/LICENSE.txt)
 
 Summary: A high-quality, open video format for the web
 
