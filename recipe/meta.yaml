@@ -1,5 +1,5 @@
 {% set name = "libvpx" %}
-{% set version = "1.14.0" %}
+{% set version = "1.14.1" %}
 
 package:
   name: {{ name }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://download.videolan.org/contrib/vpx/libvpx-{{ version }}.tar.gz
-  sha256: 5f21d2db27071c8a46f1725928a10227ae45c5cd1cad3727e4aafbe476e321fa
+  sha256: 901747254d80a7937c933d03bd7c5d41e8e6c883e0665fadcb172542167c7977
 
 build:
   number: 0
@@ -21,6 +21,7 @@ build:
 requirements:
   build:
     - {{ compiler('c') }}
+    - {{ stdlib("c") }}
     - {{ compiler('cxx') }}
     - make
     - yasm
